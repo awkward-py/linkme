@@ -4,7 +4,7 @@ import { ModeToggle } from "./ModeToggle";
 
 export default function Footer() {
     return (
-<footer className="px-8 md:px-30 lg:px-32 py-20 mt-10 grid gap-4">
+<footer className="px-8 md:px-30 lg:px-32 py-10 mt-40 grid gap-4">
   <div className="flex items-left justify-between">
 
     <div className="flex flex-col items-left">

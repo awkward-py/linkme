@@ -242,7 +242,7 @@ export default function UserSocials({ userDataName }) {
                 <div className="-mt-20 mb-20 grid place-content-center">
                     <h1 className="font-bold text-center text-3xl mt-5">User not found.<span className="text-primary">.</span></h1>
                     <p className="text-center text-sm mt-2">Please double-check the username <br /> and try again.</p>
-                    <Button href="/" className="mt-5 w-full max-w-sm mx-auto">Back</Button>
+                    <Button href="https://www.linkmee.xyz" className="mt-5 w-full max-w-sm mx-auto">Back</Button>
                 </div>
             )}
          <div className="mt-32 grid place-content-center text-center -mb-10">
