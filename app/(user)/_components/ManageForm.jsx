@@ -94,7 +94,7 @@ export default function ManageForm() {
                     <Input value={username} onChange={(e) => setUsername(e.target.value.trim().toLowerCase())} id="image" type="text" placeholder="Username"  className="placeholder:text-gray-400 placeholder:text-sm" maxLength={10}/>
 
                     <Label htmlFor="name" className="mt-2">Full Name</Label>
-                    <Input value={name} onChange={(e) => setName(e.target.value)} id="name" type="text" placeholder="Anshul Rawat"  className="placeholder:text-gray-400 placeholder:text-sm" maxLength={40}/>
+                    <Input value={name} onChange={(e) => setName(e.target.value)} id="name" type="text" placeholder="Your full name"  className="placeholder:text-gray-400 placeholder:text-sm" maxLength={40}/>
 
                     <Label htmlFor="bio" className="mt-2">About</Label>
                     <Textarea value={bio} onChange={(e) => setBio(e.target.value)} id="bio" placeholder="Tell others about yourself like who you are"  className="placeholder:text-gray-400 placeholder:text-sm" maxLength={500}></Textarea>

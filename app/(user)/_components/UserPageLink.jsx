@@ -29,7 +29,7 @@ export default function UserPageLink() {
         <div className="px-6 md:px-20 lg:px-32">
             {!username ? (
                 <Alert className="p-3">
-                    <AlertTitle className="text-sm"><span>✨</span> Just so you know! <span>✨</span></AlertTitle>
+                    <AlertTitle className="text-sm">Just so you know! </AlertTitle>
                     <AlertDescription className="text-xs text-gray-600 dark:text-gray-400">
                      Scroll down to publish your page and claim your personalized URL.
                     </AlertDescription>
@@ -37,8 +37,8 @@ export default function UserPageLink() {
             ) : (
                 <div>
                   <Alert className="p-3">
-                    <AlertTitle className="text-sm"><span>✨</span> Your page is ready <span>✨</span></AlertTitle>
-                    <AlertDescription className="text-xs text-gray-600 dark:text-gray-400 hover:underline">
+                    <AlertTitle className="text-sm"> Your page is ready! </AlertTitle>
+                    <AlertDescription className="text-xs text-gray-600 dark:text-gray-400 underline">
                         <Link target="_blank" href={`https://${location.host}/${username}`}>https://{location.host}/{username}</Link>
                     </AlertDescription>
                 </Alert>  
