@@ -89,7 +89,10 @@ export default function ManageForm() {
     return (
         <form className="grid gap-2 mt-5 lg:px-40" method="post" onSubmit={handlePublishEvent}>
             {!loding && (
+
+                
                 <div className="grid gap-2 mt-5">
+                 
                     <Label htmlFor="username" className="mt-2">Username</Label>
                     <Input value={username} onChange={(e) => setUsername(e.target.value.trim().toLowerCase())} id="image" type="text" placeholder="Username"  className="placeholder:text-gray-400 placeholder:text-sm" maxLength={10}/>
 
@@ -98,8 +101,10 @@ export default function ManageForm() {
 
                     <Label htmlFor="bio" className="mt-2">About</Label>
                     <Textarea value={bio} onChange={(e) => setBio(e.target.value)} id="bio" placeholder="Tell others about yourself like who you are"  className="placeholder:text-gray-400 placeholder:text-sm" maxLength={500}></Textarea>
+                    
+                     <p className="text-[13px] mt-8 mb-[-5] text-gray-500">Add your social links. Skip any you don't have.</p>
 
-                    <Label htmlFor="youtube" className="mt-8">YouTube</Label>
+                    <Label htmlFor="youtube" className="mt-3">YouTube</Label>
                     <Input value={youtube} onChange={(e) => setYoutube(e.target.value)} id="youtube" type="url" placeholder="https://youtube.com/@username"   className="placeholder:text-gray-400 placeholder:text-sm text-blue-600"/>
 
                     <Label htmlFor="insta" className="mt-2">Instagram</Label>
