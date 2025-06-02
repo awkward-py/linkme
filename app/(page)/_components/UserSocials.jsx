@@ -250,10 +250,24 @@ export default function UserSocials({ userDataName }) {
   {error ? (
     <p className="text-xs mt-2 text-[13px]">
       All rights reserved by <a href="/">LinkMe</a>
+        <Link href="https://offtopics.in/linkme-privacy-policy" className="text-gray-500underline">
+                Privacy Policy |
+              </Link>{" "}
+              <Link href="https://offtopics.in/linkme-terms&use" className="text-gray-500 underline">
+                Terms & Use
+              </Link>{" "}
     </p>
+    
+    
   ) : (
     <p className="text-xs mt-2 text-[13px]">
       All rights reserved by {userDataName} with <a href="/">LinkMe</a>
+        <Link href="https://offtopics.in/linkme-privacy-policy" className="text-gray-500 underline">
+              <br />  Privacy Policy |
+              </Link>{" "}
+              <Link href="https://offtopics.in/linkme-terms&use" className="text-gray-500 underline">
+                Terms & Use
+              </Link>{" "}
     </p>
   )}
 </div>
