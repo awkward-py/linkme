@@ -12,7 +12,7 @@ export default function Footer() {
       {/* <p className="text-xs mt-1 text-left">
         Built with{" "}
         <a
-          href="https://github.com/r2hu1"
+          href="https://github.com/awkward-py"
           className="hover:text-primary hover:underline"
         >
           awkwardpy
