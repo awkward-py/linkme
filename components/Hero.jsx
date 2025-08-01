@@ -11,7 +11,7 @@ export default async function Hero() {
     return (
         <div className="py-14 px-6 md:px-20 lg:px-32 grid">
             <div className="border mb-4 w-fit sm:mx-auto py-1.5 px-3 rounded-full bg-background">
-                  <a className="hover:underline" href="">
+                  <a className="hover:underline" href="https://github.com/awkward-py/linkme">
       <p className="text-xs flex items-center justify-center gap-1">
         <Image src="/assets/star.svg" width={14} height={14} />
         Contribute to this project on GitHub
