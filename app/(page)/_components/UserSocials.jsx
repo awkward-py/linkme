@@ -202,8 +202,24 @@ export default function UserSocials({ userDataName }) {
           <Skeleton className="h-14 w-[300px] mx-auto" />
         </div>
       )}
+
+
       {!loding && (
+
+
         <div className="grid relative gap-3 grid-cols-1 max-w-[600px]">
+
+          <div className="w-full md:w-[420px] sm:w-[300px] font-semibold mx-auto h-14 flex items-center justify-center relative gap-2 dark:text-white">
+            <img
+              src="/assets/socials-icon.svg"
+              alt="Socials"
+              className="h-5 w-5"
+              draggable="false"
+            />
+            <h2 className="text-base">Socials</h2>
+          </div>
+
+
           {!youtube ? null : (
             <Link
               href={youtube}
@@ -299,6 +315,17 @@ export default function UserSocials({ userDataName }) {
               My Threads
             </Link>
           )}
+
+          <div className="w-full md:w-[420px] sm:w-[300px] font-semibold mx-auto h-14 flex items-center justify-center gap-2 dark:text-white">
+            <img
+              src="/assets/professional-icon.svg"
+              alt="Professional"
+              className="h-5 w-5"
+              draggable="false"
+            />
+            <h2 className="text-base">Professional</h2>
+          </div>
+
 
 
           {!linkedin ? null : (
@@ -411,6 +438,16 @@ export default function UserSocials({ userDataName }) {
             </Link>
           )}
 
+          <div className="w-full gap-2 md:w-[420px] sm:w-[300px] font-semibold mx-auto h-14 flex items-center justify-center relative dark:text-white">
+            <img
+              src="/assets/music-icon.svg"
+              alt="Music"
+              className="h-5 w-5"
+              draggable="false"
+            />
+            <h2 className="text-base">Music</h2>
+          </div>
+
           {twitch && (
             <Link
               href={twitch}
@@ -455,6 +492,16 @@ export default function UserSocials({ userDataName }) {
             </Link>
           )}
 
+          <div className="w-full gap-2 md:w-[420px] sm:w-[300px] font-semibold mx-auto h-14 flex items-center justify-center relative dark:text-white">
+            <img
+              src="/assets/communication-icon.svg"
+              alt="Communication"
+              className="h-5 w-5"
+              draggable="false"
+            />
+            <h2 className="text-base">Communication</h2>
+          </div>
+
           {discord && (
             <Link
               href={discord}
@@ -498,6 +545,16 @@ export default function UserSocials({ userDataName }) {
               My Skype
             </Link>
           )}
+
+          <div className="w-full gap-2 md:w-[420px] sm:w-[300px] font-semibold mx-auto h-14 flex items-center justify-center relative dark:text-white">
+            <img
+              src="/assets/donations-icon.svg"
+              alt="Donations"
+              className="h-5 w-5"
+              draggable="false"
+            />
+            <h2 className="text-base text-[12px]">Storefront/Donations</h2>
+          </div>
 
           {amazon && (
             <Link
@@ -550,9 +607,19 @@ export default function UserSocials({ userDataName }) {
               className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
             >
               <img src="/assets/patreon-icon.svg" alt="Patreon" className="absolute left-6 h-6 w-6" draggable="false" />
-         Get Perks
+              Get Perks
             </Link>
           )}
+
+          <div className="w-full gap-2 md:w-[420px] sm:w-[300px] font-semibold mx-auto h-14 flex items-center justify-center relative dark:text-white">
+            <img
+              src="/assets/miscellaneous-icon.svg"
+              alt="Miscellaneous"
+              className="h-5 w-7"
+              draggable="false"
+            />
+            <h2 className="text-base">Miscellaneous</h2>
+          </div>
 
           {website && (
             <Link
