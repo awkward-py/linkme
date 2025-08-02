@@ -48,13 +48,7 @@ export default function ManageForm() {
   const [blog, setBlog] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
-  //2
-
   const [accessKey, setAccessKey] = useState("");
-
-
-
 
   const [loading, setLoading] = useState(true);
   const [isPublished, setIsPublished] = useState(false);
