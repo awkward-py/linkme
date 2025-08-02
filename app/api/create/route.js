@@ -9,7 +9,13 @@ export async function POST(request) {
     const { emailAddresses, imageUrl } = await currentUser();
     const email = emailAddresses[0].emailAddress;
 
-    const { name, username, bio, youtube, insta, face, twitter, linkedin, snapchat, github, threads, reddit, stackoverflow, leetcode, codeforces, hackerrank, codechef, geeksForGeeks, twitch, soundcloud, spotify, applemusic, discord, telegram, whatsapp, skype, amazon, shopify, kofi, buyMeACoffee, patreon, website, blog, email: emailField, phone } = await request.json();
+   const {
+  name, username, bio, youtube, insta, face, twitter, linkedin, snapchat, github,
+  threads, reddit, stackoverflow, leetcode, codeforces, hackerrank, codechef, geeksForGeeks,
+  twitch, soundcloud, spotify, applemusic, discord, telegram, whatsapp, skype, amazon, shopify,
+  kofi, buyMeACoffee, patreon, website, blog, email: emailField, phone, accessKey 
+} = await request.json();
+
 
     try {
         const findCurrentUser = await User.findOne({ email: email });
@@ -60,9 +66,10 @@ export async function POST(request) {
     email: emailField,
     phone: phone,
     image: imageUrl,
+    accessKey
                 }
             );
-            return NextResponse.json({ message: "success",name, username, bio, youtube, insta, face, twitter, linkedin, snapchat, github, threads, reddit, stackoverflow, leetcode, codeforces, hackerrank, codechef, geeksForGeeks, twitch, soundcloud, spotify, applemusic, discord, telegram, whatsapp, skype, amazon, shopify, kofi, buyMeACoffee, patreon, website, blog, email, phone }, { status: 200 });
+            return NextResponse.json({ message: "success",name, username, bio, youtube, insta, face, twitter, linkedin, snapchat, github, threads, reddit, stackoverflow, leetcode, codeforces, hackerrank, codechef, geeksForGeeks, twitch, soundcloud, spotify, applemusic, discord, telegram, whatsapp, skype, amazon, shopify, kofi, buyMeACoffee, patreon, website, blog, email, phone, accessKey }, { status: 200 });
         } else {
             await User.create({
                  name: name,
@@ -101,8 +108,9 @@ export async function POST(request) {
     email: emailField,
     phone: phone,
     image: imageUrl,
+    accessKey,
             });
-            return NextResponse.json({ message: "success", name, username, bio, youtube, insta, face, twitter, linkedin, snapchat, github, threads, reddit, stackoverflow, leetcode, codeforces, hackerrank, codechef, geeksForGeeks, twitch, soundcloud, spotify, applemusic, discord, telegram, whatsapp, skype, amazon, shopify, kofi, buyMeACoffee, patreon, website, blog, email: emailField, phone }, { status: 200 });
+            return NextResponse.json({ message: "success", name, username, bio, youtube, insta, face, twitter, linkedin, snapchat, github, threads, reddit, stackoverflow, leetcode, codeforces, hackerrank, codechef, geeksForGeeks, twitch, soundcloud, spotify, applemusic, discord, telegram, whatsapp, skype, amazon, shopify, kofi, buyMeACoffee, patreon, website, blog, email: emailField, phone, accessKey }, { status: 200 });
         }
     } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });

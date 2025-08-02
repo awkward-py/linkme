@@ -20,7 +20,6 @@ export default function UserSocials({ userDataName }) {
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
-
   const [threads, setThreads] = useState("");
   const [reddit, setReddit] = useState("");
   const [stackoverflow, setStackoverflow] = useState("");
@@ -46,6 +45,11 @@ export default function UserSocials({ userDataName }) {
   const [blog, setBlog] = useState("");
   const [emailField, setEmailField] = useState("");
   const [phone, setPhone] = useState("");
+  const [accessKey, setAccessKey] = useState("");
+  const [showPrivate, setShowPrivate] = useState(false);
+  const [inputKey, setInputKey] = useState("");
+  const [wrongKey, setWrongKey] = useState(false);
+
 
   useEffect(() => {
     if (
@@ -81,7 +85,10 @@ export default function UserSocials({ userDataName }) {
       !website &&
       !blog &&
       !emailField &&
-      !phone
+      !phone &&
+      !showPrivate &&
+      !accessKey &&
+      !inputKey
     ) {
       let username = userDataName;
       fetch("/api/page/get", {
@@ -130,6 +137,10 @@ export default function UserSocials({ userDataName }) {
             setBlog(data.data.blog || "");
             setEmailField(data.data.email || "");
             setPhone(data.data.phone || "");
+            setAccessKey(data.data.accessKey || "");
+            setInputKey(data.data.inputKey || "");
+            setShowPrivate(data.data.showPrivate || "");
+
           } else {
             setError(true);
           }
@@ -621,49 +632,84 @@ export default function UserSocials({ userDataName }) {
             <h2 className="text-base">Miscellaneous</h2>
           </div>
 
-          {website && (
-            <Link
-              href={website}
-              target="_blank"
-              className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
-            >
-              <img src="/assets/website-icon.svg" alt="Website" className="absolute left-6 h-6 w-6" draggable="false" />
-              My Website
-            </Link>
-          )}
+          {accessKey && !showPrivate && (
+            <div className="flex flex-col items-center gap-3 my-6">
+              <input
+                type="password"
+                placeholder="Enter Access Key"
+                value={inputKey}
+                onChange={(e) => setInputKey(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-md w-[280px] text-sm dark:bg-neutral-900 dark:text-white dark:border-neutral-700"
+              />
+              <Button
+                onClick={() => {
+                  if (inputKey === accessKey) {
+                    setShowPrivate(true);
+                    setWrongKey(false);
+                  } else {
+                    setWrongKey(true);
+                  }
+                }}
+                className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary text-black hover:text-white hover:scale-95 relative dark:hover:text-black"
+              >
+                Unlock Private Links
+              </Button>
 
-          {blog && (
-            <Link
-              href={blog}
-              target="_blank"
-              className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
-            >
-              <img src="/assets/blog-icon.svg" alt="Blog" className="absolute left-6 h-6 w-6" draggable="false" />
-              Read My Blog
-            </Link>
-          )}
+              {wrongKey && (
+                <h1 className="text-sm text-red-600 dark:text-red-400 font-medium">
+                  That key didn’t match.
+                </h1>
+              )}
+            </div>
 
-          {emailField && (
-            <Link
-              href={`mailto:${emailField}`}
-              className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
-            >
-              <img src="/assets/email-icon.svg" alt="Email" className="absolute left-6 h-6 w-6" draggable="false" />
-              Email Me
-            </Link>
-          )}
-
-          {phone && (
-            <Link
-              href={`tel:${phone}`}
-              className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
-            >
-              <img src="/assets/phone-icon.svg" alt="Phone" className="absolute left-6 h-6 w-6" draggable="false" />
-              Call Me
-            </Link>
           )}
 
 
+          {showPrivate && (
+            <>
+              {website && (
+                <Link
+                  href={website}
+                  target="_blank"
+                  className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
+                >
+                  <img src="/assets/website-icon.svg" alt="Website" className="absolute left-6 h-6 w-6" draggable="false" />
+                  My Website
+                </Link>
+              )}
+
+              {blog && (
+                <Link
+                  href={blog}
+                  target="_blank"
+                  className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
+                >
+                  <img src="/assets/blog-icon.svg" alt="Blog" className="absolute left-6 h-6 w-6" draggable="false" />
+                  Read My Blog
+                </Link>
+              )}
+
+              {emailField && (
+                <Link
+                  href={`mailto:${emailField}`}
+                  className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
+                >
+                  <img src="/assets/email-icon.svg" alt="Email" className="absolute left-6 h-6 w-6" draggable="false" />
+                  Email Me
+                </Link>
+              )}
+
+              {phone && (
+                <Link
+                  href={`tel:${phone}`}
+                  className="w-full transition md:w-[420px] sm:w-[300px] mx-auto h-14 bg-secondary flex items-center justify-center rounded-lg hover:bg-primary hover:text-white hover:scale-95 relative dark:hover:text-black"
+                >
+                  <img src="/assets/phone-icon.svg" alt="Phone" className="absolute left-6 h-6 w-6" draggable="false" />
+                  Call Me
+                </Link>
+              )}
+            </>
+          )}
         </div>
       )}
       {error && (

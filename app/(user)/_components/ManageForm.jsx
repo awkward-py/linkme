@@ -49,6 +49,12 @@ export default function ManageForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  //2
+
+  const [accessKey, setAccessKey] = useState("");
+
+
+
 
   const [loading, setLoading] = useState(true);
   const [isPublished, setIsPublished] = useState(false);
@@ -100,6 +106,7 @@ export default function ManageForm() {
             setBlog(d.blog || "");
             setEmail(d.email || "");
             setPhone(d.phone || "");
+            setAccessKey(d.accessKey || "");
 
           }
         })
@@ -171,7 +178,8 @@ export default function ManageForm() {
           website,
           blog,
           email,
-          phone
+          phone,
+          accessKey
         }),
 
       });
@@ -588,6 +596,18 @@ export default function ManageForm() {
             className="placeholder:text-gray-400 placeholder:text-sm text-blue-600"
           />
 
+         <div>
+          <Label htmlFor="phone" className="mt-2 block text-red-600">Set Access Key(Optional)</Label>
+          <Label htmlFor="phone" className="mt-1">Set a key to hide private miscellaneous links.</Label>
+          </div> 
+          <Input
+            type="text"
+            id="accessKey"
+            value={accessKey}
+            onChange={(e) => setAccessKey(e.target.value)}
+            placeholder="Set a access key"
+            className="placeholder:text-gray-400 placeholder:text-sm placeholder:font-normal font-semibold text-red-600"
+          />
 
           <div className="grid mt-5">
             <Button

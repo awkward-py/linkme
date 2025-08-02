@@ -113,4 +113,6 @@ export const userSchema = new mongoose.Schema({
   phone: {
     type: Number,
   },
+  accessKey: { type: String, default: "" }
+
 });
